@@ -1,16 +1,16 @@
 import { Card } from "@/components/ui/card"
-import { AlertCircle } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 
 interface RuleCardProps {
-  rule: string
+  text: string
 }
 
-export function RuleCard({ rule }: RuleCardProps) {
+export function RuleCard({ text }: RuleCardProps) {
   return (
-    <Card className="p-3 md:p-4 hover:shadow-lg transition-shadow duration-300">
-      <div className="flex items-start gap-2 md:gap-3">
-        <AlertCircle className="h-4 w-4 md:h-5 md:w-5 text-destructive flex-shrink-0 mt-0.5" />
-        <p className="text-sm md:text-base leading-relaxed">{rule}</p>
+    <Card className="p-3 md:p-4 hover:shadow-lg transition-shadow duration-300 bg-gradient-to-r from-primary/5 to-transparent border-l-4 border-l-primary">
+      <div className="flex items-start gap-3">
+        <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6 text-primary flex-shrink-0 mt-0.5" />
+        <p className="text-sm md:text-base leading-relaxed font-medium">{text}</p>
       </div>
     </Card>
   )
