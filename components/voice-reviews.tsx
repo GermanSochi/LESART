@@ -4,14 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Play, Pause, Mic } from "lucide-react"
-
-interface AudioReview {
-  id: string
-  name: string
-  position: string
-  audioData: string
-  avatar?: string
-}
+import { fetchSiteContent, type AudioReview } from "@/lib/site-content-client"
 
 export function VoiceReviews() {
   const [reviews, setReviews] = useState<AudioReview[]>([])
@@ -20,23 +13,14 @@ export function VoiceReviews() {
 
   useEffect(() => {
     const loadReviews = () => {
-      const savedReviews = localStorage.getItem("audioReviews")
-      if (savedReviews) {
-        setReviews(JSON.parse(savedReviews))
-      }
+      fetchSiteContent()
+        .then((c) => setReviews(c.audioReviews ?? []))
+        .catch(() => setReviews([]))
     }
     loadReviews()
     
-    const handleStorageChange = () => loadReviews()
-    window.addEventListener("storage", handleStorageChange)
-    window.addEventListener("audioReviewsUpdated", handleStorageChange)
-    
-    const interval = setInterval(loadReviews, 2000)
-    
     return () => {
-      window.removeEventListener("storage", handleStorageChange)
-      window.removeEventListener("audioReviewsUpdated", handleStorageChange)
-      clearInterval(interval)
+      // no-op
     }
   }, [])
 
@@ -75,10 +59,10 @@ export function VoiceReviews() {
   return (
     <div className="grid gap-3 md:gap-4 md:grid-cols-2">
       {reviews.map((review) => (
-        <Card key={review.id} className="p-4 flex items-center gap-4 hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-muted/30 to-transparent">
+        <Card key={review.id} className="bento-card bento-card-hover p-4 flex items-center gap-4 bg-gradient-to-r from-muted/30 to-transparent">
           <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary/20">
-            {review.avatar ? (
-              <img src={review.avatar} alt={review.name} className="w-full h-full object-cover" />
+            {review.avatarUrl ? (
+              <img src={review.avatarUrl} alt={review.name} className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full bg-primary/10 flex items-center justify-center">
                 <span className="text-primary font-bold text-lg">{review.name.charAt(0)}</span>
@@ -109,7 +93,7 @@ export function VoiceReviews() {
             }}
             onEnded={() => handleEnded(review.id)}
           >
-            <source src={review.audioData} />
+            <source src={review.audioUrl} />
           </audio>
         </Card>
       ))}

@@ -2,12 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
-import { ChevronDown, MessageCircleQuestion } from "lucide-react"
-
-interface FAQ {
-  question: string
-  answer: string
-}
+import { MessageCircleQuestion } from "lucide-react"
+import { fetchSiteContent, type FAQ } from "@/lib/site-content-client"
 
 const defaultFaqs: FAQ[] = [
   {
@@ -37,50 +33,27 @@ const defaultFaqs: FAQ[] = [
 ]
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [faqs, setFaqs] = useState<FAQ[]>(defaultFaqs)
 
   useEffect(() => {
     const loadFaqs = () => {
-      const savedFaqs = localStorage.getItem("faqItems")
-      if (savedFaqs) {
-        setFaqs(JSON.parse(savedFaqs))
-      }
+      fetchSiteContent()
+        .then((c) => setFaqs(c.faqs?.length ? c.faqs : defaultFaqs))
+        .catch(() => setFaqs(defaultFaqs))
     }
     loadFaqs()
-    
-    const handleUpdate = () => loadFaqs()
-    window.addEventListener("faqsUpdated", handleUpdate)
-    return () => window.removeEventListener("faqsUpdated", handleUpdate)
   }, [])
 
   return (
-    <div className="space-y-2 md:space-y-3">
+    <div className="space-y-3 md:space-y-4">
       {faqs.map((faq, index) => (
-        <Card
-          key={index}
-          className={`overflow-hidden cursor-pointer transition-all duration-300 ${
-            openIndex === index ? "shadow-lg border-primary/30" : "hover:shadow-md"
-          }`}
-          onClick={() => setOpenIndex(openIndex === index ? null : index)}
-        >
-          <div className="p-4 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+        <Card key={index} className="bento-card bento-card-hover p-4 md:p-5">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
               <MessageCircleQuestion className="h-4 w-4 text-primary" />
             </div>
-            <h3 className="font-medium text-sm md:text-base flex-1">{faq.question}</h3>
-            <ChevronDown
-              className={`h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform duration-300 ${
-                openIndex === index ? "rotate-180 text-primary" : ""
-              }`}
-            />
-          </div>
-          <div
-            className={`overflow-hidden transition-all duration-300 ${
-              openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <div className="px-4 pb-4 pt-0 pl-16">
+            <div className="space-y-1">
+              <h3 className="font-semibold text-sm md:text-base">{faq.question}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
             </div>
           </div>
@@ -94,10 +67,9 @@ export function useFAQs() {
   const [faqs, setFaqs] = useState<FAQ[]>(defaultFaqs)
 
   useEffect(() => {
-    const savedFaqs = localStorage.getItem("faqItems")
-    if (savedFaqs) {
-      setFaqs(JSON.parse(savedFaqs))
-    }
+    fetchSiteContent()
+      .then((c) => setFaqs(c.faqs?.length ? c.faqs : defaultFaqs))
+      .catch(() => setFaqs(defaultFaqs))
   }, [])
 
   return faqs

@@ -123,3 +123,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Bento-style cards */
+  .bento-card {
+    @apply rounded-2xl border border-border/60 bg-card/70 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-card/60;
+  }
+  .bento-card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+  }
+}

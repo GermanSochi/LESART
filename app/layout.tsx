@@ -12,6 +12,22 @@ export const metadata: Metadata = {
   description:
     "Ищем в премиум-отель LES Art Resort (Дорохово, 60 км от Москвы). Вакансии: повар, официант, горничная, стюард. Бесплатное проживание + 3-разовое питание + белая зарплата. Реальные голосовые отзывы сотрудников.",
   generator: "v0.app",
+  metadataBase: new URL("https://lesart.ru"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    title: "Работа в LES Art Resort — с проживанием и питанием",
+    description:
+      "Вакансии в загородном отеле под Москвой: проживание, питание, белая зарплата. Ставки, условия, реальные голосовые отзывы сотрудников.",
+    url: "https://lesart.ru/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Работа в LES Art Resort — с проживанием и питанием",
+    description:
+      "Вакансии в загородном отеле под Москвой: проживание, питание, белая зарплата. Реальные голосовые отзывы сотрудников.",
+  },
   icons: {
     icon: [
       {
@@ -36,10 +52,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "LES Art Resort",
+        url: "https://lesart.ru/",
+      },
+      {
+        "@type": "WebSite",
+        name: "Работа в LES Art Resort",
+        url: "https://lesart.ru/",
+        inLanguage: "ru-RU",
+      },
+    ],
+  }
+
   return (
     <html lang="ru">
       <body className={`font-sans antialiased`}>
         {children}
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Analytics />
       </body>
     </html>

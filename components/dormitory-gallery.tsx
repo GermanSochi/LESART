@@ -4,28 +4,28 @@ import { useState } from "react"
 import { X, ChevronLeft, ChevronRight, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-
-const dormitoryImages = [
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2026-01-12_15-21-50-GIFcT8LRI7WPTBUTO6c8JNjwyPaW7h.jpg", alt: "Кухонная зона" },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2026-01-12_15-21-52%20%282%29-7RQjepmOma4FhtgrWLUUQfYUe461dD.jpg", alt: "Холодильник и микроволновая печь" },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2026-01-12_15-21-53-6VuIPYV4iHPjFxKCKwYK20bbEoIaem.jpg", alt: "Прачечная" },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2026-01-12_15-21-52%20%283%29-jQwLatdgxqVGaCQYg0QVY679vDWbPi.jpg", alt: "Душевая" },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2026-01-12_15-21-51-l1OhteJyNDd2PMW4egnRTaAgAVdOz3.jpg", alt: "Общая зона" },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2026-01-12_15-21-51%20%282%29-KOZXKQodO86ZPLldOffUKWsM61MdoM.jpg", alt: "Лестница" },
-]
+import { fetchSiteContent } from "@/lib/site-content-client"
+import { useEffect } from "react"
 
 export function DormitoryGallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [images, setImages] = useState<{ src: string; alt: string }[]>([])
+
+  useEffect(() => {
+    fetchSiteContent()
+      .then((c) => setImages(c.media?.dormitoryImages ?? []))
+      .catch(() => setImages([]))
+  }, [])
 
   const handlePrevious = () => {
     if (selectedImage !== null) {
-      setSelectedImage((selectedImage - 1 + dormitoryImages.length) % dormitoryImages.length)
+      setSelectedImage((selectedImage - 1 + images.length) % images.length)
     }
   }
 
   const handleNext = () => {
     if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % dormitoryImages.length)
+      setSelectedImage((selectedImage + 1) % images.length)
     }
   }
 
@@ -43,7 +43,7 @@ export function DormitoryGallery() {
         </div>
         
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-          {dormitoryImages.map((image, index) => (
+          {images.map((image, index) => (
             <button
               key={index}
               onClick={() => setSelectedImage(index)}
@@ -78,11 +78,11 @@ export function DormitoryGallery() {
 
           <div className="max-w-4xl max-h-[85vh] flex flex-col items-center gap-4">
             <img
-              src={dormitoryImages[selectedImage].src}
-              alt={dormitoryImages[selectedImage].alt}
+              src={images[selectedImage].src}
+              alt={images[selectedImage].alt}
               className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
             />
-            <p className="text-white text-sm md:text-base font-medium">{dormitoryImages[selectedImage].alt}</p>
+            <p className="text-white text-sm md:text-base font-medium">{images[selectedImage].alt}</p>
           </div>
 
           <Button

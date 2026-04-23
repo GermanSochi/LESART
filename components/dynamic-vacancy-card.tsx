@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { fetchSiteContent } from "@/lib/site-content-client"
 
 interface DynamicVacancyCardProps {
   image: string
@@ -9,37 +10,21 @@ interface DynamicVacancyCardProps {
   gender: string
 }
 
-const DEFAULT_RATES: { [key: string]: number } = {
-  "Официант": 360,
-  "Повар": 380,
-  "Су-шеф": 400,
-  "Стюард": 340,
-  "Горничная": 370,
-  "Бармен": 370,
-  "Официант банкетный": 420,
-  "Грузчик": 360,
-}
-
 export function DynamicVacancyCard({ image, title, defaultRate, gender }: DynamicVacancyCardProps) {
   const [rate, setRate] = useState(defaultRate)
 
   useEffect(() => {
     const loadRate = () => {
-      const savedRates = localStorage.getItem("vacancyRates")
-      if (savedRates) {
-        const rates = JSON.parse(savedRates)
-        if (rates[title]) {
-          setRate(rates[title])
-        }
-      }
+      fetchSiteContent()
+        .then((c) => {
+          const next = c.vacancyRates?.[title]
+          if (typeof next === "number") setRate(next)
+        })
+        .catch(() => {
+          // keep defaultRate
+        })
     }
     loadRate()
-    window.addEventListener("ratesUpdated", loadRate)
-    window.addEventListener("storage", loadRate)
-    return () => {
-      window.removeEventListener("ratesUpdated", loadRate)
-      window.removeEventListener("storage", loadRate)
-    }
   }, [title])
 
   return (

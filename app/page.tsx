@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -13,30 +14,67 @@ import { RuleCard } from "@/components/rule-card"
 import { VoiceReviews } from "@/components/voice-reviews"
 import { FAQSection } from "@/components/faq-section"
 import { AdminPanel } from "@/components/admin-panel"
+import { fetchSiteContent, type SiteContent } from "@/lib/site-content-client"
 
 export default function RecruitmentPage() {
+  const [content, setContent] = useState<SiteContent | null>(null)
+
+  useEffect(() => {
+    fetchSiteContent()
+      .then(setContent)
+      .catch(() => setContent(null))
+  }, [])
+
+  const hero = content?.hero
+  const vacancies = content?.vacancies?.length
+    ? content.vacancies.filter((v) => v.active)
+    : [
+        { id: "waiter", title: "Официант", rate: 360, gender: "М/Ж", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-o0SL9GMRITmDLF9QTo6Q7hV4ygQ7Vb.png", active: true },
+        { id: "chef", title: "Повар", rate: 380, gender: "М/Ж", image: "/images/chef-cooking.jpg", active: true },
+        { id: "sous-chef", title: "Су-шеф", rate: 400, gender: "М/Ж", image: "/images/sous-chef.jpg", active: true },
+        { id: "steward", title: "Стюард", rate: 340, gender: "М/Ж", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BPrd50iLGfSSBquztZokeMyYGZrO9h.png", active: true },
+        { id: "housekeeper", title: "Горничная", rate: 370, gender: "Женщины", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3Y2u25XeAGlvkGHPrKQvgQ1vPpFy81.png", active: true },
+        { id: "barman", title: "Бармен", rate: 370, gender: "М/Ж", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ua6uY01nwwLbNp2gS3lz8y433Mcevj.png", active: true },
+        { id: "banquet-waiter", title: "Официант банкетный", rate: 420, gender: "М/Ж", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-el02mE5Cs6iS0GLWPSxgaHWgbkEW85.png", active: true },
+        { id: "loader", title: "Грузчик", rate: 360, gender: "Мужчины", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZvfdMxqabiLi4LDwwAdrNV8YQbzIsv.png", active: true },
+      ]
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative bg-accent text-accent-foreground overflow-hidden min-h-[420px] md:min-h-[500px] animate-fade-in">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url(/images/orig.jpg)",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        </div>
+        {hero?.background?.kind === "video" ? (
+          <div className="absolute inset-0">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              src={hero.background.url}
+              poster={hero.background.posterUrl}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+          </div>
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${hero?.background?.kind === "image" ? hero.background.url : "/images/orig.jpg"})`,
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+          </div>
+        )}
         <div className="container mx-auto px-4 py-10 md:py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-5">
             <Badge className="mb-2 md:mb-3 text-sm md:text-base px-4 md:px-5 py-1.5 md:py-2 bg-primary text-primary-foreground animate-slide-down">
               Набор открыт!
             </Badge>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance text-white drop-shadow-lg animate-slide-up">
-              Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort
+              {hero?.title ?? "Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort"}
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-white/90 text-balance drop-shadow animate-slide-up delay-100">
-              Присоединяйся к команде №1 в гостеприимстве
+              {hero?.subtitle ?? "Присоединяйся к команде №1 в гостеприимстве"}
             </p>
             <div className="flex flex-col items-center gap-3 md:gap-4 pt-4 md:pt-5 animate-slide-up delay-200">
               <a href="tel:+79189058585">
@@ -95,9 +133,16 @@ export default function RecruitmentPage() {
       <section className="py-6 md:py-14 bg-muted/30 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-3">
-            <h2 className="text-2xl md:text-4xl font-bold">О LES Art Resort</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">{content?.sections?.about?.title ?? "О LES Art Resort"}</h2>
             <p className="text-base md:text-lg leading-relaxed">
-              <span className="font-semibold">Идеология HOLA Clusive</span> — это самая! счастливая атмосфера!!!!!!, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.
+              <span
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html:
+                    content?.sections?.about?.text ??
+                    "<span class=\"font-semibold\">Идеология HOLA Clusive</span> — это самая! счастливая атмосфера!!!!!!, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.",
+                }}
+              />
             </p>
           </div>
         </div>
@@ -107,15 +152,15 @@ export default function RecruitmentPage() {
       <section className="py-5 md:py-10 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-3 md:gap-4 max-w-6xl mx-auto">
-            <div className="h-36 md:h-64 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
-              <img src="/images/vf0knk43chz6eaosf50ihmkdbak58uh3.jpg" alt="Бассейн отеля" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-36 md:h-64 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
-              <img src="/images/dfefd2cf78c253b17824ca626eff1bd2fea71eed.jpg" alt="Вид на территорию" className="w-full h-full object-cover" />
-            </div>
-            <div className="h-36 md:h-64 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
-              <img src="/images/mdp90wmg206eotljsbr03hgonf3kmlvs.jpeg" alt="Главное здание" className="w-full h-full object-cover" />
-            </div>
+            {(content?.media?.hotelImages?.length ? content.media.hotelImages : [
+              { src: "/images/vf0knk43chz6eaosf50ihmkdbak58uh3.jpg", alt: "Бассейн отеля" },
+              { src: "/images/dfefd2cf78c253b17824ca626eff1bd2fea71eed.jpg", alt: "Вид на территорию" },
+              { src: "/images/mdp90wmg206eotljsbr03hgonf3kmlvs.jpeg", alt: "Главное здание" },
+            ]).slice(0, 3).map((img, idx) => (
+              <div key={idx} className="h-36 md:h-64 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -124,59 +169,18 @@ export default function RecruitmentPage() {
       <section className="py-8 md:py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-10">
-            <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Какие бывают вакансии</h2>
-            <p className="text-base md:text-lg text-muted-foreground">Выбери свою роль в нашей команде</p>
+            <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">
+              {content?.sections?.vacancies?.title ?? "Какие бывают вакансии"}
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground">
+              {content?.sections?.vacancies?.subtitle ?? "Выбери свою роль в нашей команде"}
+            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
-            <DynamicVacancyCard 
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-o0SL9GMRITmDLF9QTo6Q7hV4ygQ7Vb.png" 
-              title="Официант" 
-              defaultRate={360} 
-              gender="М/Ж" 
-            />
-            <DynamicVacancyCard 
-              image="/images/chef-cooking.jpg" 
-              title="Повар" 
-              defaultRate={380} 
-              gender="М/Ж" 
-            />
-            <DynamicVacancyCard 
-              image="/images/sous-chef.jpg" 
-              title="Су-шеф" 
-              defaultRate={400} 
-              gender="М/Ж" 
-            />
-            <DynamicVacancyCard 
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-BPrd50iLGfSSBquztZokeMyYGZrO9h.png" 
-              title="Стюард" 
-              defaultRate={340} 
-              gender="М/Ж" 
-            />
-            <DynamicVacancyCard 
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3Y2u25XeAGlvkGHPrKQvgQ1vPpFy81.png" 
-              title="Горничная" 
-              defaultRate={370} 
-              gender="Женщины" 
-            />
-            <DynamicVacancyCard 
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ua6uY01nwwLbNp2gS3lz8y433Mcevj.png" 
-              title="Бармен" 
-              defaultRate={370} 
-              gender="М/Ж" 
-            />
-            <DynamicVacancyCard 
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-el02mE5Cs6iS0GLWPSxgaHWgbkEW85.png" 
-              title="Официант банкетный" 
-              defaultRate={420} 
-              gender="М/Ж" 
-            />
-            <DynamicVacancyCard 
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZvfdMxqabiLi4LDwwAdrNV8YQbzIsv.png" 
-              title="Грузчик" 
-              defaultRate={360} 
-              gender="Мужчины" 
-            />
+            {vacancies.map((v) => (
+              <DynamicVacancyCard key={v.id} image={v.image} title={v.title} defaultRate={v.rate} gender={v.gender} />
+            ))}
           </div>
 
           <div className="mt-8 md:mt-10 text-center">
@@ -208,7 +212,9 @@ export default function RecruitmentPage() {
       <section className="py-8 md:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-3 mb-6 md:mb-10">
-            <h2 className="text-2xl md:text-4xl font-bold">Преимущества работы у нас</h2>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              {content?.sections?.benefits?.title ?? "Преимущества работы у нас"}
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
@@ -231,7 +237,9 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl font-bold">Реальные условия работы в LES Art Resort</h2>
+              <h2 className="text-2xl md:text-4xl font-bold">
+                {content?.sections?.conditions?.title ?? "Реальные условия работы в LES Art Resort"}
+              </h2>
             </div>
             <Card className="p-5 md:p-8 bg-gradient-to-br from-muted/50 to-muted/20">
               <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
@@ -247,8 +255,12 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl font-bold mb-2">Голосовые отзывы реальных сотрудников</h2>
-              <p className="text-base md:text-lg text-muted-foreground">Послушайте, что говорят наши коллеги</p>
+              <h2 className="text-2xl md:text-4xl font-bold mb-2">
+                {content?.sections?.voiceReviews?.title ?? "Голосовые отзывы реальных сотрудников"}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground">
+                {content?.sections?.voiceReviews?.subtitle ?? "Послушайте, что говорят наши коллеги"}
+              </p>
             </div>
             <VoiceReviews />
           </div>
@@ -260,9 +272,31 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl font-bold mb-2">Часто задаваемые вопросы</h2>
+              <h2 className="text-2xl md:text-4xl font-bold mb-2">
+                {content?.sections?.faq?.title ?? "Часто задаваемые вопросы"}
+              </h2>
             </div>
             <FAQSection />
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Article */}
+      <section className="py-10 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4">
+              {content?.sections?.seoArticle?.title ?? "Работа в загородном отеле с проживанием: условия, вакансии, ответы"}
+            </h2>
+            <div
+              className="prose prose-neutral dark:prose-invert max-w-none prose-p:leading-relaxed"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html:
+                  content?.sections?.seoArticle?.html ??
+                  "<p>Ищете работу с проживанием в Москве и Московской области? LES Art Resort — это стабильные смены, бесплатное проживание и питание, белая зарплата и понятные условия.</p>",
+              }}
+            />
           </div>
         </div>
       </section>
@@ -272,24 +306,37 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-6 md:mb-10">
-              <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Как добраться</h2>
-              <p className="text-base md:text-lg text-muted-foreground">Мы находимся рядом с Москвой</p>
+              <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">
+                {content?.sections?.howToGetThere?.title ?? "Как добраться"}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground">
+                {content?.sections?.howToGetThere?.subtitle ?? "Мы находимся рядом с Москвой"}
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4 md:gap-6">
               <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group">
-                <img src="/images/transport-car.jpg" alt="На автомобиле" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <img
+                  src={content?.sections?.howToGetThere?.car?.image ?? "/images/transport-car.jpg"}
+                  alt={content?.sections?.howToGetThere?.car?.title ?? "На автомобиле"}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
                       <Car className="h-5 w-5 text-white" />
                     </div>
-                    <h3 className="font-bold text-xl text-white">На автомобиле</h3>
+                    <h3 className="font-bold text-xl text-white">{content?.sections?.howToGetThere?.car?.title ?? "На автомобиле"}</h3>
                   </div>
-                  <p className="text-sm text-white/90 mb-3">Около 60 минут от Москвы по Минскому шоссе</p>
+                  <p className="text-sm text-white/90 mb-3">
+                    {content?.sections?.howToGetThere?.car?.description ?? "Около 60 минут от Москвы по Минскому шоссе"}
+                  </p>
                   <a
-                    href="https://yandex.ru/maps/?ll=37.157876%2C55.656713&mode=routes&rtext=55.700094%2C37.342531~55.520648%2C36.355103&rtt=auto&ruri=ymapsbm1%3A%2F%2Ftransit%2Fstop%3Fid%3Dstation__lh_9602218~ymapsbm1%3A%2F%2Forg%3Foid%3D1242864809&z=11.3"
+                    href={
+                      content?.sections?.howToGetThere?.car?.routeUrl ??
+                      "https://yandex.ru/maps/?ll=37.157876%2C55.656713&mode=routes&rtext=55.700094%2C37.342531~55.520648%2C36.355103&rtt=auto&ruri=ymapsbm1%3A%2F%2Ftransit%2Fstop%3Fid%3Dstation__lh_9602218~ymapsbm1%3A%2F%2Forg%3Foid%3D1242864809&z=11.3"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -302,16 +349,25 @@ export default function RecruitmentPage() {
               </div>
 
               <div className="relative h-48 md:h-56 rounded-xl overflow-hidden group">
-                <img src="/images/transport-train.jpg" alt="Общественный транспорт" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <img
+                  src={content?.sections?.howToGetThere?.transit?.image ?? "/images/transport-train.jpg"}
+                  alt={content?.sections?.howToGetThere?.transit?.title ?? "Общественный транспорт"}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
                       <Train className="h-5 w-5 text-white" />
                     </div>
-                    <h3 className="font-bold text-xl text-white">Общественный транспорт</h3>
+                    <h3 className="font-bold text-xl text-white">
+                      {content?.sections?.howToGetThere?.transit?.title ?? "Общественный транспорт"}
+                    </h3>
                   </div>
-                  <p className="text-sm text-white/90">МЦД-4 до станции Лесной Городок, далее автобус до отеля</p>
+                  <p className="text-sm text-white/90">
+                    {content?.sections?.howToGetThere?.transit?.description ??
+                      "МЦД-4 до станции Лесной Городок, далее автобус до отеля"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -324,16 +380,23 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 md:mb-10">
-              <h2 className="text-2xl md:text-4xl font-bold">Работая у нас, ты</h2>
+              <h2 className="text-2xl md:text-4xl font-bold">{content?.sections?.values?.title ?? "Работая у нас, ты"}</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-3 md:gap-4">
-              <ValueItem text="Уважаешь разнообразие гостей и коллег" />
-              <ValueItem text="С гордостью представляешь компанию" />
-              <ValueItem text="Постоянно учишься и реализуешь инициативы" />
-              <ValueItem text="Работаешь в команде по принципу поддержки" />
-              <ValueItem text="Идёшь вперёд ради ярких впечатлений гостей" />
-              <ValueItem text="Всегда с улыбкой и уважением к «Друзьям Отеля»" />
+              {(content?.sections?.values?.items?.length
+                ? content.sections.values.items
+                : [
+                    "Уважаешь разнообразие гостей и коллег",
+                    "С гордостью представляешь компанию",
+                    "Постоянно учишься и реализуешь инициативы",
+                    "Работаешь в команде по принципу поддержки",
+                    "Идёшь вперёд ради ярких впечатлений гостей",
+                    "Всегда с улыбкой и уважением к «Друзьям Отеля»",
+                  ]
+              ).map((t, i) => (
+                <ValueItem key={i} text={t} />
+              ))}
             </div>
           </div>
         </div>
@@ -344,14 +407,18 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 md:mb-10">
-              <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Стандарты внешнего вида</h2>
-              <p className="text-base md:text-lg text-muted-foreground">Каждый сотрудник — лицо отеля</p>
+              <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">
+                {content?.sections?.standards?.title ?? "Стандарты внешнего вида"}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground">
+                {content?.sections?.standards?.subtitle ?? "Каждый сотрудник — лицо отеля"}
+              </p>
             </div>
 
             <div className="mb-5 md:mb-8 rounded-xl overflow-hidden shadow-xl">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kTRxPknDJ72i6QQGq5ojeoNR6tdsSr.png"
-                alt="Стандарты формы сотрудников"
+                src={content?.sections?.standards?.bannerImage?.src ?? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-kTRxPknDJ72i6QQGq5ojeoNR6tdsSr.png"}
+                alt={content?.sections?.standards?.bannerImage?.alt ?? "Стандарты формы сотрудников"}
                 className="w-full h-auto"
               />
             </div>
@@ -372,18 +439,29 @@ export default function RecruitmentPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 md:mb-10">
-              <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Основные правила</h2>
-              <p className="text-base md:text-lg text-muted-foreground">Мы ценим честность, порядок и профессионализм</p>
+              <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">
+                {content?.sections?.rules?.title ?? "Основные правила"}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground">
+                {content?.sections?.rules?.subtitle ?? "Мы ценим честность, порядок и профессионализм"}
+              </p>
             </div>
 
             <div className="grid gap-3 md:gap-4">
-              <RuleCard text="Всегда выглядеть опрятно и стильно (ты — лицо компании)" />
-              <RuleCard text="Передвигаться только по сотрудническому маршруту" />
-              <RuleCard text="Русский язык в гостевых зонах, никаких громких разговоров" />
-              <RuleCard text="Мобильные телефоны только на перерыве и вне гостевой зоны" />
-              <RuleCard text="Курение строго в специальных местах" />
-              <RuleCard text="Беречь имущество отеля, сразу сообщать о поломках" />
-              <RuleCard text="Без медкнижки и документов не допускаем к работе" />
+              {(content?.sections?.rules?.items?.length
+                ? content.sections.rules.items
+                : [
+                    "Всегда выглядеть опрятно и стильно (ты — лицо компании)",
+                    "Передвигаться только по сотрудническому маршруту",
+                    "Русский язык в гостевых зонах, никаких громких разговоров",
+                    "Мобильные телефоны только на перерыве и вне гостевой зоны",
+                    "Курение строго в специальных местах",
+                    "Беречь имущество отеля, сразу сообщать о поломках",
+                    "Без медкнижки и документов не допускаем к работе",
+                  ]
+              ).map((t, i) => (
+                <RuleCard key={i} text={t} />
+              ))}
             </div>
           </div>
         </div>
@@ -393,9 +471,12 @@ export default function RecruitmentPage() {
       <section className="py-10 md:py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-4 md:space-y-5">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-balance">Стань частью LES Team!</h2>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-balance">
+              {content?.sections?.cta?.title ?? "Стань частью LES Team!"}
+            </h2>
             <p className="text-lg md:text-xl text-primary-foreground/90 text-balance">
-              Работа для настоящих, энергичных, дружелюбных и честных. Приходи дарить улыбки!
+              {content?.sections?.cta?.subtitle ??
+                "Работа для настоящих, энергичных, дружелюбных и честных. Приходи дарить улыбки!"}
             </p>
             <div className="flex flex-col items-center gap-3 md:gap-4 pt-4 md:pt-5">
               <a href="tel:+79189058585">
@@ -417,7 +498,7 @@ export default function RecruitmentPage() {
       <footer className="py-8 md:py-12 bg-muted text-center relative">
         <div className="container mx-auto px-4">
           <p className="text-base md:text-lg text-muted-foreground font-medium">
-            © 2025 LES Art Resort. Приезжай, работай, развивайся!
+            {content?.sections?.footer?.copyright ?? "© 2025 LES Art Resort. Приезжай, работай, развивайся!"}
           </p>
         </div>
         <AdminPanel />
