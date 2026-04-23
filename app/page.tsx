@@ -33,7 +33,7 @@ export default function RecruitmentPage() {
               Набор открыт!
             </Badge>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance text-white drop-shadow-lg animate-slide-up">
-              Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort
+              лучшая !!!! Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-white/90 text-balance drop-shadow animate-slide-up delay-100">
               Присоединяйся к команде №1 в гостеприимстве
@@ -97,7 +97,7 @@ export default function RecruitmentPage() {
           <div className="max-w-4xl mx-auto text-center space-y-3">
             <h2 className="text-2xl md:text-4xl font-bold">О LES Art Resort</h2>
             <p className="text-base md:text-lg leading-relaxed">
-              <span className="font-semibold">Идеология HOLA Clusive</span> — это счастливая атмосфера, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.
+              <span className="font-semibold">Идеология HOLA Clusive</span> — это счастливая атмосфера!!!!!!, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.
             </p>
           </div>
         </div>
