@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-23T13:35:40.234Z",
+  "updatedAt": "2026-04-23T15:16:06.839Z",
   "media": {
     "hotelImages": [
       {
@@ -128,8 +128,8 @@
     "title": "Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort",
     "subtitle": "Присоединяйся к команде №1 в гостеприимстве",
     "background": {
-      "kind": "video",
-      "url": "/uploads/video/1776951195005-0dfd953b1875f3e4.mp4"
+      "kind": "image",
+      "url": "/uploads/images/1776957365062-fc4bae7d18af825e.jpg"
     }
   },
   "audioReviews": [
