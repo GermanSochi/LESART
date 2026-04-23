@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-23T15:16:06.839Z",
+  "updatedAt": "2026-04-23T16:09:12.647Z",
   "media": {
     "hotelImages": [
       {
@@ -134,28 +134,18 @@
   },
   "audioReviews": [
     {
-      "id": "seed-1",
-      "name": "Сотрудник 1",
-      "position": "Должность",
-      "audioUrl": "/uploads/audio/seed-1.mp3"
+      "id": "seed-6",
+      "name": "Ольга ",
+      "position": "Горничная ",
+      "audioUrl": "/uploads/audio/seed-6.mp3",
+      "avatarUrl": "/uploads/images/1776950745488-372257a208436da0.jpg"
     },
     {
-      "id": "seed-2",
-      "name": "Сотрудник 2",
-      "position": "Должность",
-      "audioUrl": "/uploads/audio/seed-2.mp3"
-    },
-    {
-      "id": "seed-3",
-      "name": "Сотрудник 3",
-      "position": "Должность",
-      "audioUrl": "/uploads/audio/seed-3.mp3"
-    },
-    {
-      "id": "seed-4",
-      "name": "Сотрудник 4",
-      "position": "Должность",
-      "audioUrl": "/uploads/audio/seed-4.mp3"
+      "id": "seed-7",
+      "name": "Анастасия ",
+      "position": "Горничная",
+      "audioUrl": "/uploads/audio/seed-7.mp3",
+      "avatarUrl": "/uploads/images/1776959508925-ee9864f46a2402fe.jpg"
     },
     {
       "id": "seed-5",
@@ -165,17 +155,32 @@
       "avatarUrl": "/uploads/images/1776950695729-f473cb860800781e.jpg"
     },
     {
-      "id": "seed-6",
-      "name": "Ольга ",
-      "position": "Горничная ",
-      "audioUrl": "/uploads/audio/seed-6.mp3",
-      "avatarUrl": "/uploads/images/1776950745488-372257a208436da0.jpg"
+      "id": "seed-1",
+      "name": "Азамат",
+      "position": "Водитель\\грузчик ",
+      "audioUrl": "/uploads/audio/seed-1.mp3",
+      "avatarUrl": "/uploads/images/1776960065805-029e9a43e98d2529.jpg"
     },
     {
-      "id": "seed-7",
-      "name": "Сотрудник 7",
-      "position": "Должность",
-      "audioUrl": "/uploads/audio/seed-7.mp3"
+      "id": "seed-2",
+      "name": "Бэк",
+      "position": "Официант ",
+      "audioUrl": "/uploads/audio/seed-2.mp3",
+      "avatarUrl": "/uploads/images/1776960183998-0edbec908b946b7a.jpg"
+    },
+    {
+      "id": "seed-3",
+      "name": "Фархат ",
+      "position": "Стюарт",
+      "audioUrl": "/uploads/audio/seed-3.mp3",
+      "avatarUrl": "/uploads/images/1776960383578-a361cfe9bede7e8f.jpg"
+    },
+    {
+      "id": "seed-4",
+      "name": "Батыргуль",
+      "position": "Уборщица",
+      "audioUrl": "/uploads/audio/seed-4.mp3",
+      "avatarUrl": "/uploads/images/1776960514818-d85020e8a0d4bc50.jpg"
     }
   ],
   "vacancies": [
