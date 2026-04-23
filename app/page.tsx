@@ -33,7 +33,7 @@ export default function RecruitmentPage() {
               Набор открыт!
             </Badge>
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance text-white drop-shadow-lg animate-slide-up">
-              лучшая !!!! Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort
+              Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort
             </h1>
             <p className="text-base md:text-xl lg:text-2xl text-white/90 text-balance drop-shadow animate-slide-up delay-100">
               Присоединяйся к команде №1 в гостеприимстве
