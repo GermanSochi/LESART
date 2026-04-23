@@ -97,7 +97,7 @@ export default function RecruitmentPage() {
           <div className="max-w-4xl mx-auto text-center space-y-3">
             <h2 className="text-2xl md:text-4xl font-bold">О LES Art Resort</h2>
             <p className="text-base md:text-lg leading-relaxed">
-              <span className="font-semibold">Идеология HOLA Clusive</span> — это самая счастливая атмосфера!!!!!!, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.
+              <span className="font-semibold">Идеология HOLA Clusive</span> — это самая! счастливая атмосфера!!!!!!, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.
             </p>
           </div>
         </div>
