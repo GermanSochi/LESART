@@ -47,6 +47,7 @@ export type SiteContent = {
     }
     conditions: {
       title: string
+      text: string
     }
     seoArticle: {
       title: string
@@ -103,6 +104,34 @@ export type SiteContent = {
 
 const DATA_DIR = path.join(process.cwd(), "data")
 const CONTENT_PATH = path.join(DATA_DIR, "site-content.json")
+const BLOB_PATHNAME = "admin/site-content.json"
+
+function useBlob(): boolean {
+  return !!process.env.BLOB_READ_WRITE_TOKEN
+}
+
+async function readFromBlob(): Promise<SiteContent | null> {
+  try {
+    const { list } = await import("@vercel/blob")
+    const { blobs } = await list({ prefix: BLOB_PATHNAME, limit: 1 })
+    if (blobs.length === 0) return null
+    const res = await fetch(blobs[0].downloadUrl, { cache: "no-store" })
+    if (!res.ok) return null
+    return (await res.json()) as SiteContent
+  } catch {
+    return null
+  }
+}
+
+async function writeToBlob(content: SiteContent): Promise<void> {
+  const { put } = await import("@vercel/blob")
+  const json = JSON.stringify(content, null, 2)
+  await put(BLOB_PATHNAME, json, {
+    access: "public",
+    contentType: "application/json",
+    addRandomSuffix: false,
+  })
+}
 
 export function defaultSiteContent(): SiteContent {
   return {
@@ -126,33 +155,33 @@ export function defaultSiteContent(): SiteContent {
     sections: {
       about: {
         title: "О LES Art Resort",
-        text: "<span class=\"font-semibold\">Идеология HOLA Clusive</span> — это самая! счастливая атмосфера!!!!!!, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.",
+        text: "<span class=\"font-semibold\">Идеология HOLA Clusive</span> — это самая счастливая атмосфера, улыбки всех гостей, уникальный комплекс услуг и тёплый радушный приём.",
       },
       vacancies: {
-        title: "Какие бывают вакансии",
-        subtitle: "Выбери свою роль в нашей команде",
+        title: "Выбери свою роль",
+        subtitle: "Открытые вакансии с реальными ставками",
       },
       conditions: {
-        title: "Реальные условия работы в LES Art Resort",
+        title: "Реальные условия работы",
+        text: "Здесь вас ждёт настоящая работа в гостиничном бизнесе — интенсивная, динамичная, но с отличными условиями. Смены длятся от 11 часов и больше, в зависимости от загрузки отеля. Горничные ежедневно убирают 12-15 номеров. В сезон работа может быть 13-14 часов в день. График подбирается под ваши возможности: 5/2, 6/1 или 7/0. Проживание в комнатах по 4-6 человек — чисто, тепло, со всеми удобствами. Оформление по срочному трудовому договору или как самозанятый. Минимум месяц, максимум — сколько захотите. Ценные кадры всегда ждут и ценят! Да, работа физически насыщенная, но взамен — бесплатное проживание, питание и честная белая зарплата.",
       },
       seoArticle: {
         title: "Работа в загородном отеле с проживанием: условия, вакансии, ответы",
-        html:
-          "<p>Ищете работу с проживанием в Москве и Московской области? LES Art Resort — это стабильные смены, бесплатное проживание и питание, белая зарплата и понятные условия. Ниже — ответы на частые вопросы, реальные ставки по вакансиям и голосовые отзывы сотрудников.</p>",
+        html: "<p>Ищете работу с проживанием в Москве и Московской области? LES Art Resort — это стабильные смены, бесплатное проживание и питание, белая зарплата и понятные условия. Ниже — ответы на частые вопросы, реальные ставки по вакансиям и голосовые отзывы сотрудников.</p>",
       },
       voiceReviews: {
-        title: "Голосовые отзывы реальных сотрудников",
-        subtitle: "Послушайте, что говорят наши коллеги",
+        title: "Говорят те, кто уже работает",
+        subtitle: "Реальные голосовые отзывы сотрудников",
       },
       faq: {
         title: "Часто задаваемые вопросы",
       },
       benefits: {
-        title: "Преимущества работы у нас",
+        title: "Почему выбирают нас",
       },
       howToGetThere: {
         title: "Как добраться",
-        subtitle: "Мы находимся рядом с Москвой",
+        subtitle: "60 км от Москвы по Минскому шоссе",
         car: {
           title: "На автомобиле",
           description: "Около 60 минут от Москвы по Минскому шоссе",
@@ -199,16 +228,16 @@ export function defaultSiteContent(): SiteContent {
         ],
       },
       cta: {
-        title: "Стань частью LES Team!",
-        subtitle: "Работа для настоящих, энергичных, дружелюбных и честных. Приходи дарить улыбки!",
+        title: "Один звонок — и ты в команде",
+        subtitle: "Ответим прямо сейчас. Выход на работу за 1–3 дня.",
       },
       footer: {
         copyright: "© 2025 LES Art Resort. Приезжай, работай, развивайся!",
       },
     },
     hero: {
-      title: "Работа в загородном отеле с проживанием в Москве и Московской области — LES Art Resort",
-      subtitle: "Присоединяйся к команде №1 в гостеприимстве",
+      title: "Работай там, где мечтают отдыхать",
+      subtitle: "Жильё · Питание · Белая зарплата · 60 км от Москвы",
       background: { kind: "image", url: "/images/orig.jpg" },
     },
     audioReviews: [],
@@ -290,6 +319,14 @@ async function ensureDataDir() {
 }
 
 export async function readSiteContent(): Promise<SiteContent> {
+  if (useBlob()) {
+    const content = await readFromBlob()
+    if (content) return content
+    const defaultContent = defaultSiteContent()
+    await writeToBlob(defaultContent)
+    return defaultContent
+  }
+
   await ensureDataDir()
   try {
     const raw = await fs.readFile(CONTENT_PATH, "utf8")
@@ -302,12 +339,17 @@ export async function readSiteContent(): Promise<SiteContent> {
 }
 
 export async function writeSiteContent(next: SiteContent): Promise<void> {
-  await ensureDataDir()
   const toWrite: SiteContent = {
     ...next,
     version: 1,
     updatedAt: new Date().toISOString(),
   }
+
+  if (useBlob()) {
+    await writeToBlob(toWrite)
+    return
+  }
+
+  await ensureDataDir()
   await fs.writeFile(CONTENT_PATH, JSON.stringify(toWrite, null, 2), "utf8")
 }
-

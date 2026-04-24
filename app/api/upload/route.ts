@@ -8,7 +8,6 @@ export const runtime = "nodejs"
 function safeExtFromFilename(filename: string) {
   const ext = path.extname(filename || "").toLowerCase()
   if (!ext) return ""
-  // allow common media; everything else becomes empty
   if ([".mp3", ".wav", ".m4a", ".ogg", ".webm", ".mp4", ".jpg", ".jpeg", ".png", ".webp", ".gif"].includes(ext)) return ext
   return ""
 }
@@ -36,6 +35,17 @@ export async function POST(req: Request) {
   const base = `${Date.now()}-${hash}${ext}`
   const folder = folderFromMime(mime)
 
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const { put } = await import("@vercel/blob")
+    const pathname = `uploads/${folder}/${base}`
+    const blob = await put(pathname, buffer, {
+      access: "public",
+      contentType: mime,
+      addRandomSuffix: false,
+    })
+    return NextResponse.json({ ok: true, url: blob.url, mime, size: buffer.length })
+  }
+
   const publicDir = path.join(process.cwd(), "public")
   const uploadDir = path.join(publicDir, "uploads", folder)
   await fs.mkdir(uploadDir, { recursive: true })
@@ -45,4 +55,3 @@ export async function POST(req: Request) {
   const urlPath = `/uploads/${folder}/${base}`
   return NextResponse.json({ ok: true, url: urlPath, mime, size: buffer.length })
 }
-

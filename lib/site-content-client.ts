@@ -44,6 +44,7 @@ export type SiteContent = {
     }
     conditions: {
       title: string
+      text: string
     }
     seoArticle: {
       title: string

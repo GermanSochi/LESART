@@ -401,9 +401,21 @@ export function AdminPanel() {
                           onChange={(e) =>
                             setContent({
                               ...content,
-                              sections: { ...content.sections, conditions: { title: e.target.value } },
+                              sections: { ...content.sections, conditions: { ...content.sections.conditions, title: e.target.value } },
                             })
                           }
+                        />
+                        <p className="text-xs text-muted-foreground">Условия работы — текст</p>
+                        <Textarea
+                          value={content.sections.conditions.text ?? ""}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              sections: { ...content.sections, conditions: { ...content.sections.conditions, text: e.target.value } },
+                            })
+                          }
+                          rows={6}
+                          placeholder="Описание реальных условий работы..."
                         />
                       </div>
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-23T16:09:12.647Z",
+  "updatedAt": "2026-04-24T15:09:55.597Z",
   "media": {
     "hotelImages": [
       {
@@ -246,7 +246,7 @@
       "rate": 360,
       "gender": "Мужчины",
       "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZvfdMxqabiLi4LDwwAdrNV8YQbzIsv.png",
-      "active": true
+      "active": false
     }
   ],
   "vacancyRates": {

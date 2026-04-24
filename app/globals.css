@@ -172,4 +172,49 @@
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
   .delay-600 { animation-delay: 600ms; }
+
+  /* hero scroll bounce override for subtlety */
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(6px); opacity: 0.7; }
+  }
+  .animate-bounce { animation: bounce-subtle 2s ease-in-out infinite; }
+
+  /* counter-style big numbers */
+  .stat-number {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* scroll reveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  [data-reveal][data-delay="1"] { transition-delay: 80ms; }
+  [data-reveal][data-delay="2"] { transition-delay: 160ms; }
+  [data-reveal][data-delay="3"] { transition-delay: 240ms; }
+  [data-reveal][data-delay="4"] { transition-delay: 320ms; }
+  [data-reveal][data-delay="5"] { transition-delay: 400ms; }
+  [data-reveal][data-delay="6"] { transition-delay: 480ms; }
+
+  /* waveform bars */
+  @keyframes waveform-bar {
+    from { transform: scaleY(0.25); }
+    to   { transform: scaleY(1); }
+  }
+
+  /* pulsing ring on primary CTA */
+  @keyframes ring-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(var(--ring-rgb, 64 170 120) / 0.5); }
+    50%       { box-shadow: 0 0 0 10px rgba(var(--ring-rgb, 64 170 120) / 0); }
+  }
+  .cta-pulse {
+    animation: ring-pulse 2.4s ease-in-out infinite;
+  }
 }
