@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(npm install *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(cp \"LESnew/images/building.jpeg\" \"public/images/building.jpeg\")",
+      "Bash(cp \"LESnew/images/hero2.jpg\" \"public/images/hero2.jpg\")",
+      "Bash(cp \"LESnew/images/chef.jpg\" \"public/images/chef.jpg\")",
+      "Bash(cp \"LESnew/images/pool.jpg\" \"public/images/pool.jpg\")",
+      "Bash(cp \"LESnew/images/dorm1.jpg\" \"public/images/dorm1.jpg\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
