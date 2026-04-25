@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowDown, ArrowUp, ImageIcon, Plus, RefreshCw, Save, Settings, Trash2, Upload, X } from "lucide-react"
+import { ArrowDown, ArrowUp, ImageIcon, Plus, RefreshCw, Save, Trash2, Upload, X } from "lucide-react"
 import { fetchSiteContent, saveSiteContent, uploadMedia, type AudioReview, type SiteContent, type Vacancy } from "@/lib/site-content-client"
 
 function uid() {
@@ -23,6 +23,12 @@ function move<T>(arr: T[], from: number, to: number) {
 export function AdminPanel() {
   const [isOpen, setIsOpen] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const handler = () => setIsOpen(true)
+    window.addEventListener("open-admin", handler)
+    return () => window.removeEventListener("open-admin", handler)
+  }, [])
   const [login, setLogin] = useState("")
   const [password, setPassword] = useState("")
   const [loginError, setLoginError] = useState("")
@@ -241,15 +247,7 @@ export function AdminPanel() {
   }
 
   if (!isOpen) {
-    return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 p-2 rounded-full bg-muted opacity-30 hover:opacity-100 transition-opacity z-50"
-        aria-label="Админ-панель"
-      >
-        <Settings className="h-5 w-5 text-muted-foreground" />
-      </button>
-    )
+    return null
   }
 
   return (

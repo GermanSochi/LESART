@@ -548,7 +548,7 @@ export default function Page() {
 
       <footer className="site-footer">
         <p>© 2025 LES Art Resort · Приезжай, работай, развивайся</p>
-        <p>60 км от Москвы · Минское шоссе</p>
+        <p><span style={{cursor:"default"}} onClick={()=>window.dispatchEvent(new Event("open-admin"))}>60</span> км от Москвы · Минское шоссе</p>
       </footer>
 
       {/* ══ STICKY MOBILE ══════════════════════════════════════ */}
