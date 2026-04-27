@@ -192,7 +192,7 @@ export default function Page() {
         <div className="hero__body">
           <div className="hero__left">
             <div className="hero__tag">Набор открыт прямо сейчас</div>
-            <h1 className="hero__title display">Работай там,<br />где мечтают<br />отдыхать</h1>
+            <h1 className="hero__title display">Приезжайте<br />и работайте</h1>
             <p className="hero__sub">60 км от Москвы · Жильё · Питание · Белая зарплата</p>
           </div>
           <div className="hero__right">
@@ -458,26 +458,6 @@ export default function Page() {
 
           {/* ── accordion cards ── all inline styles, zero CSS dependency ── */}
           {([
-            {
-              icon: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
-              title: "Дух команды — L · E · S",
-              sub: "Три буквы, на которых строится всё в нашем отеле",
-              body: (
-                <div>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "12px", marginBottom: "20px" }}>
-                    {([["L","Love","Любовь к делу — основа каждого действия"],["E","Enjoy","Радость от работы — гости чувствуют это сразу"],["S","Smile","Улыбка — наша главная валюта"]] as [string,string,string][]).map(([letter,word,desc])=>(
-                      <div key={letter} style={{ background: "rgba(255,255,255,.05)", borderRadius: "12px", padding: "16px 14px", textAlign: "center" }}>
-                        <div style={{ fontFamily: "Unbounded,sans-serif", fontSize: "28px", fontWeight: 900, color: "rgba(74,222,128,.9)", lineHeight: 1 }}>{letter}</div>
-                        <div style={{ fontSize: "13px", fontWeight: 700, color: "#fff", margin: "6px 0 4px" }}>{word}</div>
-                        <div style={{ fontSize: "12px", color: "rgba(255,255,255,.5)", lineHeight: 1.55 }}>{desc}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,.6)", lineHeight: 1.75, marginBottom: "10px" }}>Мы работаем по системе <strong style={{ color: "rgba(255,255,255,.85)" }}>HOLA Clusive</strong> — уникальная архитектура гостеприимства. Наших гостей называем <strong style={{ color: "rgba(255,255,255,.85)" }}>Друзьями Отеля</strong>.</p>
-                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,.6)", lineHeight: 1.75 }}>Миссия LES Art Resort — <strong style={{ color: "rgba(255,255,255,.85)" }}>доказать, что в России есть высококлассный сервис</strong>. Ты становишься частью этой истории с первого рабочего дня.</p>
-                </div>
-              ),
-            },
             {
               icon: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>,
               title: "Форма и внешний вид",
