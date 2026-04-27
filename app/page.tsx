@@ -115,12 +115,6 @@ export default function Page() {
   const [playingId, setPlayingId] = useState<string | null>(null)
   const playingAudioRef = useRef<HTMLAudioElement | null>(null)
 
-  const exBody = (idx: number): React.CSSProperties => ({
-    maxHeight: openExpand === idx ? "1800px" : "0",
-    overflow: "hidden",
-    transition: "max-height .55s cubic-bezier(.16,1,.3,1)",
-  })
-
   const handleToggle = (id: string, audio: HTMLAudioElement) => {
     if (playingId === id) {
       audio.pause()
@@ -455,206 +449,146 @@ export default function Page() {
       </section>
 
       {/* ══ INFO EXPAND ════════════════════════════════════════ */}
-      <section className="expand-section">
-        <div className="expand-inner">
-          <p className="expand-eyebrow" data-r>Для тех, кто хочет знать больше</p>
-          <h2 className="expand-title" data-r data-d="1">
-            Открыто<br />и <em>без лишней строгости</em>
+      <section style={{ background: "linear-gradient(180deg,#081510 0%,#0d1f13 100%)", padding: "clamp(60px,7vw,100px) clamp(20px,5vw,60px)" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto" }}>
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: ".18em", textTransform: "uppercase" as const, color: "rgba(74,222,128,.7)", marginBottom: "12px" }}>Для тех, кто хочет знать больше</p>
+          <h2 style={{ fontFamily: "Unbounded, sans-serif", fontSize: "clamp(22px,2.8vw,38px)", fontWeight: 900, color: "#fff", marginBottom: "clamp(28px,4vw,44px)", lineHeight: 1.15 }}>
+            Говорим честно —<br /><em style={{ color: "rgba(74,222,128,.9)", fontStyle: "normal" }}>без воды и без страшилок</em>
           </h2>
 
-          {/* Card 1 — LES principles */}
-          <div className={`excard${openExpand === 0 ? " open" : ""}`} data-r data-d="1">
-            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 0 ? null : 0)} aria-expanded={openExpand === 0}>
-              <div className="excard__icon-wrap">
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              </div>
-              <div className="excard__titles">
-                <div className="excard__title">Дух команды — L · E · S</div>
-                <div className="excard__sub">Три буквы, на которых строится всё в нашем отеле</div>
-              </div>
-              <div className="excard__arrow" aria-hidden="true">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-            </button>
-            <div className="excard__body" style={exBody(0)}>
-              <div className="excard__inner">
-                <div className="excard__divider" />
-                <div className="excard__content">
-                  <div className="les-principles">
-                    <div className="les-principle">
-                      <div className="les-principle__letter">L</div>
-                      <div className="les-principle__word">Love</div>
-                      <div className="les-principle__desc">Любовь к делу — основа каждого действия</div>
-                    </div>
-                    <div className="les-principle">
-                      <div className="les-principle__letter">E</div>
-                      <div className="les-principle__word">Enjoy</div>
-                      <div className="les-principle__desc">Радость от работы — гости чувствуют это сразу</div>
-                    </div>
-                    <div className="les-principle">
-                      <div className="les-principle__letter">S</div>
-                      <div className="les-principle__word">Smile</div>
-                      <div className="les-principle__desc">Улыбка — наша главная валюта</div>
-                    </div>
-                  </div>
-                  <div className="excard__text">
-                    <p>Мы работаем по системе <strong>HOLA Clusive</strong> — уникальная архитектура гостеприимства с особой атмосферой. Наших гостей называем <strong>Друзьями Отеля</strong> — это не просто слово, это отношение.</p>
-                    <p>Миссия LES Art Resort — <strong>доказать, что в России есть высококлассный сервис</strong>. Ты становишься частью этой истории с первого рабочего дня. Мы — одна команда: работаем не на нас, а вместе с нами.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 — Appearance */}
-          <div className={`excard${openExpand === 1 ? " open" : ""}`} data-r data-d="2">
-            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 1 ? null : 1)} aria-expanded={openExpand === 1}>
-              <div className="excard__icon-wrap">
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </div>
-              <div className="excard__titles">
-                <div className="excard__title">Форма и внешний вид</div>
-                <div className="excard__sub">Стандарты 4★ — что нужно знать до первого дня</div>
-              </div>
-              <div className="excard__arrow" aria-hidden="true">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-            </button>
-            <div className="excard__body" style={exBody(1)}>
-              <div className="excard__inner">
-                <div className="excard__divider" />
-                <div className="excard__content">
-                  <div className="excard__img-row has-img">
-                    <div>
-                      <div className="excard__standards">
-                        <div className="excard__std">
-                          <div className="excard__std-label">Отель выдаёт</div>
-                          <div className="excard__std-val">Фартук, бабочку, именной бейдж — всё уже ждёт тебя</div>
-                        </div>
-                        <div className="excard__std">
-                          <div className="excard__std-label">Приносишь ты</div>
-                          <div className="excard__std-val">Чистая белая рубашка, чёрные брюки, чёрная обувь</div>
-                        </div>
-                        <div className="excard__std">
-                          <div className="excard__std-label">Волосы и маникюр</div>
-                          <div className="excard__std-val">Аккуратная укладка, нейтральные тона — просто опрятно</div>
-                        </div>
-                        <div className="excard__std">
-                          <div className="excard__std-label">Украшения</div>
-                          <div className="excard__std-val">Обручальное кольцо, по одной сережке — ничего лишнего</div>
-                        </div>
+          {/* ── accordion cards ── all inline styles, zero CSS dependency ── */}
+          {([
+            {
+              icon: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>,
+              title: "Дух команды — L · E · S",
+              sub: "Три буквы, на которых строится всё в нашем отеле",
+              body: (
+                <div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "12px", marginBottom: "20px" }}>
+                    {([["L","Love","Любовь к делу — основа каждого действия"],["E","Enjoy","Радость от работы — гости чувствуют это сразу"],["S","Smile","Улыбка — наша главная валюта"]] as [string,string,string][]).map(([letter,word,desc])=>(
+                      <div key={letter} style={{ background: "rgba(255,255,255,.05)", borderRadius: "12px", padding: "16px 14px", textAlign: "center" }}>
+                        <div style={{ fontFamily: "Unbounded,sans-serif", fontSize: "28px", fontWeight: 900, color: "rgba(74,222,128,.9)", lineHeight: 1 }}>{letter}</div>
+                        <div style={{ fontSize: "13px", fontWeight: 700, color: "#fff", margin: "6px 0 4px" }}>{word}</div>
+                        <div style={{ fontSize: "12px", color: "rgba(255,255,255,.5)", lineHeight: 1.55 }}>{desc}</div>
                       </div>
-                    </div>
-                    <div className="excard__img-frame">
-                      <img src="/images/standard-clothing.jpg" alt="Стандарты внешнего вида" width="220" height="165" loading="lazy" />
-                    </div>
+                    ))}
                   </div>
-                  <div className="excard__text">
-                    <p><strong>Почему это важно?</strong> Ты — лицо курорта. Опрятный вид — уважение к гостям и коллегам, а не просто требование. Перед сменой всегда есть минута свериться: форма чистая, причёска аккуратная, настрой рабочий.</p>
-                  </div>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,.6)", lineHeight: 1.75, marginBottom: "10px" }}>Мы работаем по системе <strong style={{ color: "rgba(255,255,255,.85)" }}>HOLA Clusive</strong> — уникальная архитектура гостеприимства. Наших гостей называем <strong style={{ color: "rgba(255,255,255,.85)" }}>Друзьями Отеля</strong>.</p>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,.6)", lineHeight: 1.75 }}>Миссия LES Art Resort — <strong style={{ color: "rgba(255,255,255,.85)" }}>доказать, что в России есть высококлассный сервис</strong>. Ты становишься частью этой истории с первого рабочего дня.</p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3 — Territory */}
-          <div className={`excard${openExpand === 2 ? " open" : ""}`} data-r data-d="3">
-            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 2 ? null : 2)} aria-expanded={openExpand === 2}>
-              <div className="excard__icon-wrap">
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div className="excard__titles">
-                <div className="excard__title">Жизнь на территории курорта</div>
-                <div className="excard__sub">Маршруты, перерывы и простые правила соседства</div>
-              </div>
-              <div className="excard__arrow" aria-hidden="true">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-            </button>
-            <div className="excard__body" style={exBody(2)}>
-              <div className="excard__inner">
-                <div className="excard__divider" />
-                <div className="excard__content">
-                  <div className="excard__img-row has-img">
-                    <div className="excard__rules">
-                      {([
-                        ["Маршрут персонала", "Передвигаемся по служебным зонам — это удобно и гостям, и нам. В гостевые зоны только при исполнении обязанностей."],
-                        ["Телефон в кармане", "Во время смены телефон убран. Звонки и сообщения — только в перерыве, не в гостевой зоне."],
-                        ["Русский в гостевых зонах", "Общение с коллегами при гостях — только по-русски, спокойно и негромко. Личные беседы — в свободное время."],
-                        ["Курение в отведённых местах", "Строго в специальных зонах — без исключений. После — убираем за собой."],
-                        ["Принцип «убирай по ходу»", "Заметил беспорядок — поправил. Это рефлекс хорошей команды, и его ценят."],
-                      ] as [string, string][]).map(([title, desc], i) => (
-                        <div key={i} className="excard__rule">
-                          <div className="excard__rule-dot" />
-                          <div>
-                            <div style={{ fontWeight: 700, color: "rgba(255,255,255,.85)", marginBottom: "3px" }}>{title}</div>
-                            <div>{desc}</div>
-                          </div>
+              ),
+            },
+            {
+              icon: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>,
+              title: "Форма и внешний вид",
+              sub: "Стандарты 4★ — что нужно знать до первого дня",
+              body: (
+                <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "20px", alignItems: "start" }}>
+                  <div>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "16px" }}>
+                      {([["Отель выдаёт","Фартук, бабочку, именной бейдж — всё уже ждёт тебя"],["Приносишь ты","Чистая белая рубашка, чёрные брюки, чёрная обувь"],["Волосы и маникюр","Аккуратная укладка, нейтральные тона — просто опрятно"],["Украшения","Обручальное кольцо, по одной сережке — ничего лишнего"]] as [string,string][]).map(([lbl,val])=>(
+                        <div key={lbl} style={{ background: "rgba(255,255,255,.05)", borderRadius: "10px", padding: "12px 14px" }}>
+                          <div style={{ fontSize: "11px", fontWeight: 700, color: "rgba(74,222,128,.7)", textTransform: "uppercase" as const, letterSpacing: ".08em", marginBottom: "5px" }}>{lbl}</div>
+                          <div style={{ fontSize: "13px", color: "rgba(255,255,255,.65)", lineHeight: 1.5 }}>{val}</div>
                         </div>
                       ))}
                     </div>
-                    <div className="excard__img-frame">
-                      <img src="/images/territory.jpg" alt="Территория LES Art Resort" width="220" height="165" loading="lazy" />
-                    </div>
+                    <p style={{ fontSize: "13px", color: "rgba(255,255,255,.5)", lineHeight: 1.7 }}><strong style={{ color: "rgba(255,255,255,.8)" }}>Почему это важно?</strong> Ты — лицо курорта. Опрятный вид — уважение к гостям и коллегам, а не просто требование.</p>
                   </div>
+                  <img src="/images/standard-clothing.jpg" alt="Стандарты внешнего вида" width="160" height="120" loading="lazy" style={{ borderRadius: "10px", objectFit: "cover", flexShrink: 0 }} />
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4 — Fines / transparency */}
-          <div className={`excard${openExpand === 3 ? " open" : ""}`} data-r data-d="4">
-            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 3 ? null : 3)} aria-expanded={openExpand === 3}>
-              <div className="excard__icon-wrap">
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div className="excard__titles">
-                <div className="excard__title">Честно: что важно соблюдать</div>
-                <div className="excard__sub">Мы предупреждаем заранее — никаких сюрпризов в первый день</div>
-              </div>
-              <div className="excard__arrow" aria-hidden="true">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-            </button>
-            <div className="excard__body" style={exBody(3)}>
-              <div className="excard__inner">
-                <div className="excard__divider" />
-                <div className="excard__content">
-                  <p className="excard__fine-intro">
-                    Мы — отель 4★ с высокими стандартами. Часть этих стандартов закреплена финансово — <strong>не потому что мы суровые, а потому что это честно</strong>. Вот ключевые пункты без мелкого шрифта:
-                  </p>
-                  <table className="excard__fine-table">
+              ),
+            },
+            {
+              icon: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+              title: "Жизнь на территории курорта",
+              sub: "Маршруты, перерывы и простые правила соседства",
+              body: (
+                <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "20px", alignItems: "start" }}>
+                  <div style={{ display: "flex", flexDirection: "column" as const, gap: "8px" }}>
+                    {([
+                      ["Маршрут персонала","Передвигаемся по служебным зонам. В гостевые зоны — только при исполнении обязанностей."],
+                      ["Телефон в кармане","Во время смены телефон убран. Звонки — только в перерыве, не в гостевой зоне."],
+                      ["Русский в гостевых зонах","Общение с коллегами при гостях — только по-русски, спокойно и негромко."],
+                      ["Курение — в отведённых местах","Строго в специальных зонах, без исключений. После — убираем за собой."],
+                      ["Принцип «убирай по ходу»","Заметил беспорядок — поправил. Это рефлекс хорошей команды."],
+                    ] as [string,string][]).map(([title,desc])=>(
+                      <div key={title} style={{ display: "flex", gap: "12px", padding: "10px 14px", background: "rgba(255,255,255,.04)", borderRadius: "10px" }}>
+                        <div style={{ width: "6px", height: "6px", background: "rgba(74,222,128,.7)", borderRadius: "50%", flexShrink: 0, marginTop: "6px" }} />
+                        <div>
+                          <div style={{ fontSize: "13px", fontWeight: 700, color: "rgba(255,255,255,.85)", marginBottom: "2px" }}>{title}</div>
+                          <div style={{ fontSize: "12px", color: "rgba(255,255,255,.5)", lineHeight: 1.55 }}>{desc}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <img src="/images/territory.jpg" alt="Территория LES Art Resort" width="160" height="200" loading="lazy" style={{ borderRadius: "10px", objectFit: "cover", flexShrink: 0 }} />
+                </div>
+              ),
+            },
+            {
+              icon: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+              title: "Честно: что важно соблюдать",
+              sub: "Предупреждаем заранее — никаких сюрпризов в первый день",
+              body: (
+                <div>
+                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,.6)", lineHeight: 1.7, marginBottom: "16px" }}>Мы — отель 4★ с высокими стандартами. Часть из них закреплена финансово — <strong style={{ color: "rgba(255,255,255,.85)" }}>не потому что мы суровые, а потому что это честно</strong>. Вот ключевые пункты без мелкого шрифта:</p>
+                  <table style={{ width: "100%", borderCollapse: "collapse" as const, fontSize: "13px" }}>
                     <thead>
                       <tr>
-                        <th>Нарушение</th>
-                        <th>Размер</th>
+                        <th style={{ textAlign: "left" as const, padding: "10px 14px", background: "rgba(255,255,255,.07)", color: "rgba(255,255,255,.5)", fontWeight: 600, fontSize: "11px", textTransform: "uppercase" as const, letterSpacing: ".08em", borderRadius: "8px 0 0 8px" }}>Нарушение</th>
+                        <th style={{ textAlign: "right" as const, padding: "10px 14px", background: "rgba(255,255,255,.07)", color: "rgba(255,255,255,.5)", fontWeight: 600, fontSize: "11px", textTransform: "uppercase" as const, letterSpacing: ".08em", borderRadius: "0 8px 8px 0", whiteSpace: "nowrap" as const }}>Размер</th>
                       </tr>
                     </thead>
                     <tbody>
                       {([
-                        ["Нет элементов формы / нарушение стандартов внешнего вида", "Не допуск к смене"],
-                        ["Нарушение маршрута движения персонала", "1 000 ₽"],
-                        ["Опьянение в любом виде на территории", "5 000 ₽ + отстранение"],
-                        ["Опоздание на смену более 10 минут", "500 ₽ / повторно 1 000 ₽"],
-                        ["Самовольный уход с рабочего места", "Потеря оплаты за смену"],
-                        ["Неучастие в генеральной уборке", "1 500 ₽ + отстранение"],
-                        ["Вынос/употребление продуктов со шведского стола", "2 000 ₽"],
-                        ["Публикация фото с геолокацией и хэштегом отеля", "Потеря оплаты за смену"],
-                      ] as [string, string][]).map(([violation, amount], i) => (
-                        <tr key={i}>
-                          <td>{violation}</td>
-                          <td>{amount}</td>
+                        ["Нет элементов формы / нарушение стандартов внешнего вида","Не допуск к смене"],
+                        ["Нарушение маршрута движения персонала","1 000 ₽"],
+                        ["Опьянение в любом виде на территории","5 000 ₽ + отстранение"],
+                        ["Опоздание на смену более 10 минут","500 ₽ / повторно 1 000 ₽"],
+                        ["Самовольный уход с рабочего места","Потеря оплаты за смену"],
+                        ["Неучастие в генеральной уборке","1 500 ₽ + отстранение"],
+                        ["Вынос/употребление продуктов со шведского стола","2 000 ₽"],
+                        ["Публикация фото с геолокацией и хэштегом отеля","Потеря оплаты за смену"],
+                      ] as [string,string][]).map(([v,a],i)=>(
+                        <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,.05)" }}>
+                          <td style={{ padding: "10px 14px", color: "rgba(255,255,255,.65)", lineHeight: 1.4 }}>{v}</td>
+                          <td style={{ padding: "10px 14px", color: "rgba(74,222,128,.8)", fontWeight: 700, textAlign: "right" as const, whiteSpace: "nowrap" as const }}>{a}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  <div className="excard__fine-note">
-                    <strong>Это не страшно, если ты профессионал.</strong> Большинство сотрудников работают месяцами без единого нарушения. Таблица здесь — потому что мы ценим прозрачность и честность с командой. Все случаи фиксируются письменно и согласуются.
+                  <div style={{ marginTop: "16px", padding: "14px 16px", background: "rgba(74,222,128,.06)", border: "1px solid rgba(74,222,128,.15)", borderRadius: "10px", fontSize: "13px", color: "rgba(255,255,255,.6)", lineHeight: 1.7 }}>
+                    <strong style={{ color: "rgba(74,222,128,.85)" }}>Это не страшно, если ты профессионал.</strong> Большинство сотрудников работают месяцами без единого нарушения. Таблица здесь — потому что мы ценим прозрачность. Все случаи фиксируются письменно и согласуются.
                   </div>
                 </div>
+              ),
+            },
+          ] as { icon: React.ReactNode; title: string; sub: string; body: React.ReactNode }[]).map(({ icon, title, sub, body }, idx) => {
+            const isOpen = openExpand === idx
+            return (
+              <div key={idx} style={{ background: "rgba(255,255,255,.04)", border: `1px solid ${isOpen ? "rgba(74,222,128,.25)" : "rgba(255,255,255,.07)"}`, borderRadius: "16px", marginBottom: "10px", transition: "border-color .25s" }}>
+                <button
+                  onClick={() => setOpenExpand(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
+                  style={{ width: "100%", display: "flex", alignItems: "center", gap: "14px", padding: "clamp(14px,2vw,20px) clamp(16px,2.5vw,24px)", background: "none", border: "none", cursor: "pointer", textAlign: "left" as const, color: "#fff" }}
+                >
+                  <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: isOpen ? "rgba(74,222,128,.15)" : "rgba(255,255,255,.06)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "background .2s", color: isOpen ? "rgba(74,222,128,.9)" : "rgba(255,255,255,.5)" }}>{icon}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "clamp(14px,1.2vw,16px)", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{title}</div>
+                    <div style={{ fontSize: "12px", color: "rgba(255,255,255,.4)", marginTop: "3px" }}>{sub}</div>
+                  </div>
+                  <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: isOpen ? "rgba(74,222,128,.15)" : "rgba(255,255,255,.06)", border: `1px solid ${isOpen ? "rgba(74,222,128,.4)" : "rgba(255,255,255,.1)"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "transform .3s, background .2s, border-color .2s", transform: isOpen ? "rotate(45deg)" : "rotate(0deg)", color: isOpen ? "rgba(74,222,128,1)" : "rgba(255,255,255,.5)" }}>
+                    <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </div>
+                </button>
+                <div style={{ maxHeight: isOpen ? "2000px" : "0px", overflow: "hidden", transition: "max-height .55s cubic-bezier(.16,1,.3,1)" }}>
+                  <div style={{ height: "1px", background: "rgba(255,255,255,.06)", margin: "0 clamp(16px,2.5vw,24px)" }} />
+                  <div style={{ padding: "clamp(16px,2vw,24px) clamp(16px,2.5vw,24px) clamp(20px,2.5vw,28px)" }}>{body}</div>
+                </div>
               </div>
-            </div>
-          </div>
+            )
+          })}
 
         </div>
       </section>
