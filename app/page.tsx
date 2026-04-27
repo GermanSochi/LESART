@@ -115,6 +115,12 @@ export default function Page() {
   const [playingId, setPlayingId] = useState<string | null>(null)
   const playingAudioRef = useRef<HTMLAudioElement | null>(null)
 
+  const exBody = (idx: number): React.CSSProperties => ({
+    maxHeight: openExpand === idx ? "1800px" : "0",
+    overflow: "hidden",
+    transition: "max-height .55s cubic-bezier(.16,1,.3,1)",
+  })
+
   const handleToggle = (id: string, audio: HTMLAudioElement) => {
     if (playingId === id) {
       audio.pause()
@@ -470,7 +476,7 @@ export default function Page() {
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </div>
             </button>
-            <div className="excard__body">
+            <div className="excard__body" style={exBody(0)}>
               <div className="excard__inner">
                 <div className="excard__divider" />
                 <div className="excard__content">
@@ -514,7 +520,7 @@ export default function Page() {
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </div>
             </button>
-            <div className="excard__body">
+            <div className="excard__body" style={exBody(1)}>
               <div className="excard__inner">
                 <div className="excard__divider" />
                 <div className="excard__content">
@@ -565,7 +571,7 @@ export default function Page() {
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </div>
             </button>
-            <div className="excard__body">
+            <div className="excard__body" style={exBody(2)}>
               <div className="excard__inner">
                 <div className="excard__divider" />
                 <div className="excard__content">
@@ -610,7 +616,7 @@ export default function Page() {
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </div>
             </button>
-            <div className="excard__body">
+            <div className="excard__body" style={exBody(3)}>
               <div className="excard__inner">
                 <div className="excard__divider" />
                 <div className="excard__content">
