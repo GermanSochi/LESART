@@ -111,6 +111,7 @@ function ReviewCard({
 
 export default function Page() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [openExpand, setOpenExpand] = useState<number | null>(null)
   const [playingId, setPlayingId] = useState<string | null>(null)
   const playingAudioRef = useRef<HTMLAudioElement | null>(null)
 
@@ -312,22 +313,10 @@ export default function Page() {
       {/* ══ RESORT STORYTELLING ════════════════════════════════ */}
       <section className="resort" id="resort">
         <div className="resort__bg" id="resortBg" />
-        <div className="resort__float resort__float--pool" data-r data-d="1">
-          <img src="/images/pool.jpg" alt="Открытый бассейн" />
-          <div className="resort__float-label">Открытый бассейн</div>
-        </div>
-        <div className="resort__float resort__float--building" data-r data-d="2">
-          <img src="/images/pool.jpg" alt="Территория" style={{ objectPosition: "top" }} />
-          <div className="resort__float-label">Территория курорта</div>
-        </div>
-        <div className="resort__float resort__float--stat" data-r data-d="3">
-          <div className="resort__float-num">300+</div>
-          <div className="resort__float-lbl">человек в команде</div>
-        </div>
         <div className="resort__content" data-r>
-          <p className="resort__eyebrow">60 km · Минское шоссе · Одинцовский район</p>
-          <h2 className="resort__title">Лес. Воздух.<br />Работа, которая<br />не похожа<br />на работу.</h2>
-          <p className="resort__desc">Один из лучших загородных курортов Подмосковья. Берёзы, сосны, открытый бассейн — и твоё место в команде прямо здесь.</p>
+          <p className="resort__eyebrow">60 км · Минское шоссе · Одинцовский район · Дорохово</p>
+          <h2 className="resort__title">Твоё место<br />в команде<br />уже ждёт.</h2>
+          <p className="resort__desc">Один из лучших загородных курортов Подмосковья — в окружении леса. Здесь работают 300+ человек. Жильё на территории, питание, стабильная зарплата.</p>
         </div>
       </section>
 
@@ -404,13 +393,13 @@ export default function Page() {
             <p>Комнаты по 4–6 человек прямо на территории отеля. Кухня, прачечная, душевые — всё рядом.</p>
             <div className="dorm__conditions">
               <p>Смены 11+ часов · <strong>5/2, 6/1 или 7/0</strong> · Оформление по срочному договору или как самозанятый · Горничные убирают 12–15 номеров в день · В сезон возможно до 14 часов.</p>
+              <p style={{ marginTop: "10px" }}><strong>Заселение в проживание</strong> — строго в будние дни до 18:00.</p>
             </div>
           </div>
           <div className="dorm__mosaic" data-r data-d="1">
             <div><img src="/images/dorm1.jpg" alt="Кухонная зона" loading="lazy" /></div>
             <div><img src="/images/dorm2.jpg" alt="Общая зона" loading="lazy" /></div>
             <div><img src="/images/dorm3.jpg" alt="Прачечная" loading="lazy" /></div>
-            <div><img src="/images/dorm4.jpg" alt="Душевая" loading="lazy" /></div>
           </div>
         </div>
       </section>
@@ -459,6 +448,211 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ══ INFO EXPAND ════════════════════════════════════════ */}
+      <section className="expand-section">
+        <div className="expand-inner">
+          <p className="expand-eyebrow" data-r>Для тех, кто хочет знать больше</p>
+          <h2 className="expand-title" data-r data-d="1">
+            Открыто<br />и <em>без лишней строгости</em>
+          </h2>
+
+          {/* Card 1 — LES principles */}
+          <div className={`excard${openExpand === 0 ? " open" : ""}`} data-r data-d="1">
+            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 0 ? null : 0)} aria-expanded={openExpand === 0}>
+              <div className="excard__icon-wrap">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div className="excard__titles">
+                <div className="excard__title">Дух команды — L · E · S</div>
+                <div className="excard__sub">Три буквы, на которых строится всё в нашем отеле</div>
+              </div>
+              <div className="excard__arrow" aria-hidden="true">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div className="excard__body">
+              <div className="excard__inner">
+                <div className="excard__divider" />
+                <div className="excard__content">
+                  <div className="les-principles">
+                    <div className="les-principle">
+                      <div className="les-principle__letter">L</div>
+                      <div className="les-principle__word">Love</div>
+                      <div className="les-principle__desc">Любовь к делу — основа каждого действия</div>
+                    </div>
+                    <div className="les-principle">
+                      <div className="les-principle__letter">E</div>
+                      <div className="les-principle__word">Enjoy</div>
+                      <div className="les-principle__desc">Радость от работы — гости чувствуют это сразу</div>
+                    </div>
+                    <div className="les-principle">
+                      <div className="les-principle__letter">S</div>
+                      <div className="les-principle__word">Smile</div>
+                      <div className="les-principle__desc">Улыбка — наша главная валюта</div>
+                    </div>
+                  </div>
+                  <div className="excard__text">
+                    <p>Мы работаем по системе <strong>HOLA Clusive</strong> — уникальная архитектура гостеприимства с особой атмосферой. Наших гостей называем <strong>Друзьями Отеля</strong> — это не просто слово, это отношение.</p>
+                    <p>Миссия LES Art Resort — <strong>доказать, что в России есть высококлассный сервис</strong>. Ты становишься частью этой истории с первого рабочего дня. Мы — одна команда: работаем не на нас, а вместе с нами.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2 — Appearance */}
+          <div className={`excard${openExpand === 1 ? " open" : ""}`} data-r data-d="2">
+            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 1 ? null : 1)} aria-expanded={openExpand === 1}>
+              <div className="excard__icon-wrap">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div className="excard__titles">
+                <div className="excard__title">Форма и внешний вид</div>
+                <div className="excard__sub">Стандарты 4★ — что нужно знать до первого дня</div>
+              </div>
+              <div className="excard__arrow" aria-hidden="true">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div className="excard__body">
+              <div className="excard__inner">
+                <div className="excard__divider" />
+                <div className="excard__content">
+                  <div className="excard__img-row has-img">
+                    <div>
+                      <div className="excard__standards">
+                        <div className="excard__std">
+                          <div className="excard__std-label">Отель выдаёт</div>
+                          <div className="excard__std-val">Фартук, бабочку, именной бейдж — всё уже ждёт тебя</div>
+                        </div>
+                        <div className="excard__std">
+                          <div className="excard__std-label">Приносишь ты</div>
+                          <div className="excard__std-val">Чистая белая рубашка, чёрные брюки, чёрная обувь</div>
+                        </div>
+                        <div className="excard__std">
+                          <div className="excard__std-label">Волосы и маникюр</div>
+                          <div className="excard__std-val">Аккуратная укладка, нейтральные тона — просто опрятно</div>
+                        </div>
+                        <div className="excard__std">
+                          <div className="excard__std-label">Украшения</div>
+                          <div className="excard__std-val">Обручальное кольцо, по одной сережке — ничего лишнего</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="excard__img-frame">
+                      <img src="/images/standard-clothing.jpg" alt="Стандарты внешнего вида" width="220" height="165" loading="lazy" />
+                    </div>
+                  </div>
+                  <div className="excard__text">
+                    <p><strong>Почему это важно?</strong> Ты — лицо курорта. Опрятный вид — уважение к гостям и коллегам, а не просто требование. Перед сменой всегда есть минута свериться: форма чистая, причёска аккуратная, настрой рабочий.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3 — Territory */}
+          <div className={`excard${openExpand === 2 ? " open" : ""}`} data-r data-d="3">
+            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 2 ? null : 2)} aria-expanded={openExpand === 2}>
+              <div className="excard__icon-wrap">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div className="excard__titles">
+                <div className="excard__title">Жизнь на территории курорта</div>
+                <div className="excard__sub">Маршруты, перерывы и простые правила соседства</div>
+              </div>
+              <div className="excard__arrow" aria-hidden="true">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div className="excard__body">
+              <div className="excard__inner">
+                <div className="excard__divider" />
+                <div className="excard__content">
+                  <div className="excard__img-row has-img">
+                    <div className="excard__rules">
+                      {([
+                        ["Маршрут персонала", "Передвигаемся по служебным зонам — это удобно и гостям, и нам. В гостевые зоны только при исполнении обязанностей."],
+                        ["Телефон в кармане", "Во время смены телефон убран. Звонки и сообщения — только в перерыве, не в гостевой зоне."],
+                        ["Русский в гостевых зонах", "Общение с коллегами при гостях — только по-русски, спокойно и негромко. Личные беседы — в свободное время."],
+                        ["Курение в отведённых местах", "Строго в специальных зонах — без исключений. После — убираем за собой."],
+                        ["Принцип «убирай по ходу»", "Заметил беспорядок — поправил. Это рефлекс хорошей команды, и его ценят."],
+                      ] as [string, string][]).map(([title, desc], i) => (
+                        <div key={i} className="excard__rule">
+                          <div className="excard__rule-dot" />
+                          <div>
+                            <div style={{ fontWeight: 700, color: "rgba(255,255,255,.85)", marginBottom: "3px" }}>{title}</div>
+                            <div>{desc}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="excard__img-frame">
+                      <img src="/images/territory.jpg" alt="Территория LES Art Resort" width="220" height="165" loading="lazy" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 — Fines / transparency */}
+          <div className={`excard${openExpand === 3 ? " open" : ""}`} data-r data-d="4">
+            <button className="excard__head" onClick={() => setOpenExpand(openExpand === 3 ? null : 3)} aria-expanded={openExpand === 3}>
+              <div className="excard__icon-wrap">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div className="excard__titles">
+                <div className="excard__title">Честно: что важно соблюдать</div>
+                <div className="excard__sub">Мы предупреждаем заранее — никаких сюрпризов в первый день</div>
+              </div>
+              <div className="excard__arrow" aria-hidden="true">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div className="excard__body">
+              <div className="excard__inner">
+                <div className="excard__divider" />
+                <div className="excard__content">
+                  <p className="excard__fine-intro">
+                    Мы — отель 4★ с высокими стандартами. Часть этих стандартов закреплена финансово — <strong>не потому что мы суровые, а потому что это честно</strong>. Вот ключевые пункты без мелкого шрифта:
+                  </p>
+                  <table className="excard__fine-table">
+                    <thead>
+                      <tr>
+                        <th>Нарушение</th>
+                        <th>Размер</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {([
+                        ["Нет элементов формы / нарушение стандартов внешнего вида", "Не допуск к смене"],
+                        ["Нарушение маршрута движения персонала", "1 000 ₽"],
+                        ["Опьянение в любом виде на территории", "5 000 ₽ + отстранение"],
+                        ["Опоздание на смену более 10 минут", "500 ₽ / повторно 1 000 ₽"],
+                        ["Самовольный уход с рабочего места", "Потеря оплаты за смену"],
+                        ["Неучастие в генеральной уборке", "1 500 ₽ + отстранение"],
+                        ["Вынос/употребление продуктов со шведского стола", "2 000 ₽"],
+                        ["Публикация фото с геолокацией и хэштегом отеля", "Потеря оплаты за смену"],
+                      ] as [string, string][]).map(([violation, amount], i) => (
+                        <tr key={i}>
+                          <td>{violation}</td>
+                          <td>{amount}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="excard__fine-note">
+                    <strong>Это не страшно, если ты профессионал.</strong> Большинство сотрудников работают месяцами без единого нарушения. Таблица здесь — потому что мы ценим прозрачность и честность с командой. Все случаи фиксируются письменно и согласуются.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* ══ TRANSPORT ══════════════════════════════════════════ */}
       <section className="transport">
         <div style={{ maxWidth: "900px", margin: "0 auto" }} data-r>
@@ -489,7 +683,7 @@ export default function Page() {
                   <svg width="16" height="16" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="14" rx="2" /><path d="M7 18v4" /><path d="M17 18v4" /><path d="M2 10h20" /></svg>
                 </div>
                 <h3>Общественный транспорт</h3>
-                <p>МЦД-4 до Лесного Городка, далее автобус</p>
+                <p>До станции Дорохово, далее автобус или такси до отеля</p>
               </div>
             </div>
           </div>
