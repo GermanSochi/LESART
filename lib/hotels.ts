@@ -97,7 +97,7 @@ export const hotels: Hotel[] = [
     rooms: "143 номера: студии, дуплекс-сьюты, люксы, коттеджи, виллы",
     phone: "+74954020201",
     phoneDisplay: "+7 (495) 402-02-01",
-    heroImage: "/images/emerald-hero.jpg",
+    heroImage: "/images/emerald-hero.webp",
     color: "#1b4332",
     accommodation: {
       type: "Проживание на территории",
@@ -149,7 +149,7 @@ export const hotels: Hotel[] = [
     rooms: "250 стандартных номеров, 46 люксов, 15 коттеджей",
     phone: "+74956654340",
     phoneDisplay: "+7 (495) 665-43-40",
-    heroImage: "/images/campus-hero.jpg",
+    heroImage: "/images/campus-hero.webp",
     color: "#2d6a4f",
     accommodation: {
       type: "Компенсация аренды жилья",
