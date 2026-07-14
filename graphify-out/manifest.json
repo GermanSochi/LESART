@@ -1,0 +1,587 @@
+{
+  "C:\\Claude\\les-art-resort-hiring\\components.json": {
+    "mtime": 1776504680.0,
+    "ast_hash": "ba0496f98030c9a620c4cf864cd11792",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\next.config.mjs": {
+    "mtime": 1776504680.0,
+    "ast_hash": "e36b6419c008f0a3d55bd789c4fabcf0",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\package.json": {
+    "mtime": 1776504680.0,
+    "ast_hash": "8b0a4409a3b2cb4e4dd4636217056066",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\postcss.config.mjs": {
+    "mtime": 1776504680.0,
+    "ast_hash": "f82d40129ab70e95110c0470895b366c",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\tsconfig.json": {
+    "mtime": 1776504680.0,
+    "ast_hash": "1bc75c2fa50b27e6bd58bae4dee4d6e5",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\app\\layout.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "d8ee3eebceb454a905eb26cd2766538e",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\app\\page.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "a7ee61fccb9b9b59fa327762cf3d0c5f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\admin-panel.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "c639d3bde3f54a72e92be48813903151",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\benefit-card.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "0e81613a99d0494f4b674f39794a9882",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\dormitory-gallery.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "2fba863a6caaba6d88935e43dbe881d1",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\dynamic-vacancy-card.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "2855e4ffe4832eb1012c15906192b198",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\faq-section.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "569c5cc3aa6464f64705b0018bcf3187",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\rule-card.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "a9ac40a0c88e17765f46bc700bafae80",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\standard-item.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "5ae041927ae69137cc8e2e7d790996a1",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\theme-provider.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "3cd89febe6ca9cb784ba567481e50b5d",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\vacancy-card-with-bg.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "2c84a7245162f853a4d073fa83af9208",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\vacancy-card-with-image.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "d6dc53c8717751f21c3d8b536acb1b57",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\vacancy-card.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "65c6f71fbd6d79eb3f01e90cb372c315",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\value-item.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "14cc95a0afa56af88729120ba22c1a37",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\voice-reviews.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "0bb107e3268c2d7269fb110192ff866f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\accordion.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "3280ea6d007c8a1a4eb2168853752f9d",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\alert-dialog.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "f67f220ce30c2d4fc5c7f38f7cad743f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\alert.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "0b8a92e185c2b4b4132b39ab9d6bfd36",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\aspect-ratio.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "54a4035369e138e3e28c8f81f24a3e4e",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\avatar.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "0b5f08c610364dfb4b439de3072c0a18",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\badge.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "c668163ef77ed404525a44bdad8d4149",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\breadcrumb.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "73c34eacd6610e17fcf10fafc36e5e4f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\button-group.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "054671d3035df1fb7d5da3e9cd6672c2",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\button.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "299cedf4d416822d5148edb5fac28fe5",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\calendar.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "849df3f14ce3ae50bf9f0daa48c0d192",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\card.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "6f194e053b597062d44b57b450728b2c",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\carousel.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "3ddd9aa0bdb3ce098a2544c0796d7d5c",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\chart.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "cc7a999284bd7783e837a08991ced461",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\checkbox.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "9704a9dc477951f889df4d9fe814e692",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\collapsible.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "b72b5773d0bf0c7f037492e24ba87f03",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\command.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "05f2f28c4223b32d8496c7f12af5df1d",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\context-menu.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "cb3dc3f738886fd4d80bdc48cf64d524",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\dialog.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "4c0ae830ee9a2accd99d6034ef69d7c2",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\drawer.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "8a97d59e7dcbe7fc6f33f099396dc1c7",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\dropdown-menu.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "32eae2bb101ddbed92d64ace2936bde9",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\empty.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "53263933faf18ad4b65868c84deafec4",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\field.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "c23eb9872d5da4a9cecd435a3796c326",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\form.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "8558308ba44bf5795b21e19316758047",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\hover-card.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "efa74c912813e82c46b09404186f50fe",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\input-group.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "fffe8dfe70b07e97ea24022c57b5e328",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\input-otp.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "6c6765e5e951ce1c9478c91181f2070f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\input.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "02eac2d9f2705426f0c836b3fdc47af6",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\item.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "f92e1201b65414a10130bc003b98af73",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\kbd.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "a6533c169d40b559467cc159dfb79ace",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\label.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "d903b43cea5545736489d68398e9d721",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\menubar.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "dce0764df19697910c15e8953f182191",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\navigation-menu.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "cf43f62575090447c33d2c4ca3a857c2",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\pagination.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "7198ef830dcb2a51b89a5ae56b4d5f24",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\popover.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "2cc3a66dc8b534b07b67166d450bf277",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\progress.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "9bceccedd810bcfd115462ac2a49c5f9",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\radio-group.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "4f88daf9c5a7e09cf0b7af5af0472441",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\resizable.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "346349c424a33f80008d3ad17748c8fb",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\scroll-area.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "8e2931c98fa1b2521793d3cdfabc1738",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\select.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "73ee5213dbcd25fc5e574c2facda58fd",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\separator.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "fa1d6b256d52cabcb4107578b9b6b0a4",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\sheet.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "53dcbdaf54edbc8107df654165041fcc",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\sidebar.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "2298e8a44ff28f5f335cf7204599ab85",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\skeleton.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "2543986774fc345cb3bb7d170bd67647",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\slider.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "10c9432b1f32f2dabcda9df12ead549b",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\sonner.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "ccbedfa7e07db2476c5ce5753c1d2873",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\spinner.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "e75f6885c85989def66e3622ffb5b5c6",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\switch.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "5331f90f9f5dc71c2e0fe8d7073d3687",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\table.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "f9c4a944e8f63900317a2e34d5749e00",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\tabs.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "58aacdaccdedde3bed1fbf686250a620",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\textarea.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "6f7f48a37038bd31f680a101da5f1297",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\toast.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "5ee7ed62dc695a0ed611a999791189c6",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\toaster.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "81ec599e471d6645e88c84c754ca4969",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\toggle-group.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "4e81bea74e40ba0c665ce5990ef2291e",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\toggle.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "5e48c4194c17ede135b2a02181bca0ce",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\tooltip.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "c6e1691fd10fa06b4d20471aebd17d4d",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\use-mobile.tsx": {
+    "mtime": 1776504680.0,
+    "ast_hash": "aeaddfd0234c8ad696e5bc96ad23ef25",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\components\\ui\\use-toast.ts": {
+    "mtime": 1776504680.0,
+    "ast_hash": "567b2bd208a7dc4377ecacdaf928e434",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\hooks\\use-mobile.ts": {
+    "mtime": 1776504680.0,
+    "ast_hash": "aeaddfd0234c8ad696e5bc96ad23ef25",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\hooks\\use-toast.ts": {
+    "mtime": 1776504680.0,
+    "ast_hash": "567b2bd208a7dc4377ecacdaf928e434",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\lib\\utils.ts": {
+    "mtime": 1776504680.0,
+    "ast_hash": "9a4cc6f9f3155ffdc1fa7c2c097f6429",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\apple-icon.png": {
+    "mtime": 1776504680.0,
+    "ast_hash": "734ce6c878789fcd5843e8a7963e0756",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\icon-dark-32x32.png": {
+    "mtime": 1776504680.0,
+    "ast_hash": "abd5ebe9e287ca0a89f4fd3da2b5cf9c",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\icon-light-32x32.png": {
+    "mtime": 1776504680.0,
+    "ast_hash": "53426c910bcab7d3e5213cc64aa1b2c5",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\icon.svg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "6e5d88c5f7e97d26ac4ad47e703bf9de",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\placeholder-logo.png": {
+    "mtime": 1776504680.0,
+    "ast_hash": "95d8d1a4a9bbcccc875e2c381e74064a",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\placeholder-logo.svg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "1e16dc7df824652c5906a2ab44aef78c",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\placeholder-user.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "7ee6562646feae6d6d77e2c72e204591",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\placeholder.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "1e533b7b4545d1d605144ce893afc601",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\placeholder.svg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "35707bd9960ba5281c72af927b79291f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\7bf58d27d2-10c7-475b-836f-6bda4c8b3191-7d.png": {
+    "mtime": 1776504680.0,
+    "ast_hash": "459eaeebcb890e00e2ed42a5c77b5fe5",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\benefit-career.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "427aef34a1be1038fa937ae04aef0a34",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\benefit-food.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "4eaa488f0773486352133d845184daad",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\benefit-housing.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "fcedf673b03ae6cadf5d8ef347d18b24",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\benefit-payment.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "668f46783d10275b4096c87c12de50fd",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\benefit-schedule.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "f0929aa4a998845b61dcb7e6d8a45978",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\benefit-team.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "0c428a0e9a51cf58091b878a2a73ce05",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\chef-cooking.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "bfdcb8365cd436d2d8cf679ebc063c0e",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\dfefd2cf78c253b17824ca626eff1bd2fea71eed.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "bdac14bd0d3a930929d5c9367aa463c4",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\image.png": {
+    "mtime": 1776504680.0,
+    "ast_hash": "d666a35de3131bc2d4a4de5ca64a776b",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\mdp90wmg206eotljsbr03hgonf3kmlvs.jpeg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "6953565268df4d32420c60a7d0cf4a4d",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\orig.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "5a958622e9019eefa6424f1df1735719",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-50.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "fb152aca9c3afca2115db47332a37b4e",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-51-20-282-29.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "e240421e2247eebcce91e69383a000a2",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-51-20-283-29.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "b44b9f4a5b32b454ba248dea5d0e30e6",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-51-20-284-29.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "9916f4221f5cbb5b64a90ceef2835b5c",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-51.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "bc5b0700c82887de4f2f7b859cd79939",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-52-20-282-29.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "53f037672b19b7cd9b3a6c3bb89f0184",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-52-20-283-29.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "5e3ba3c8ca76f9cd7e7e575207b7665a",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\photo-2026-01-12-15-21-53.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "f7b924ac85d79c4d1e49caac22e7b1e4",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\sous-chef.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "62e6d5809546d98b51407dcdf2cb43ff",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\standard-clothing.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "b0d68e53954c8f2293d9647fc5f37cf6",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\standard-hair.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "47d57de97c6d23697f255b254b20dd8a",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\standard-hygiene.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "468fdadf67accbf2afda9897598e6a94",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\standard-shoes.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "11ea027dbb52133b058e0d496dad1930",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\transport-car.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "fa66ba0c6a9227970bd9af05c22e7852",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\transport-train.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "fcf54ee66f418bdd8a1aa4b9c1c4548f",
+    "semantic_hash": ""
+  },
+  "C:\\Claude\\les-art-resort-hiring\\public\\images\\vf0knk43chz6eaosf50ihmkdbak58uh3.jpg": {
+    "mtime": 1776504680.0,
+    "ast_hash": "666511648b6b8884d22b2bc7b689e15d",
+    "semantic_hash": ""
+  }
+}
