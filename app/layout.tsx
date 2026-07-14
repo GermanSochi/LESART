@@ -4,9 +4,9 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Работа в загородном отеле LES Art Resort с проживанием и питанием в Москве и МО",
+  title: "Работа в загородных отелях — вакансии с проживанием в Москве и МО",
   description:
-    "Ищем в премиум-отель LES Art Resort (Дорохово, 60 км от Москвы). Вакансии: повар, официант, горничная, стюард. Бесплатное проживание + 3-разовое питание + белая зарплата. Реальные голосовые отзывы сотрудников.",
+    "Ищем сотрудников в загородные отели Московской области. Вакансии: повар, официант, горничная, стюард, бармен. Бесплатное питание, белая зарплата, карьерный рост. 3 объекта.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -34,7 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`font-sans antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>
