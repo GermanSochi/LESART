@@ -52,7 +52,7 @@ export default function HomePage() {
         <p style={{ color: "rgba(255,255,255,.5)", textAlign: "center", marginBottom: 32 }}>Три загородных отеля в Московской области</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 16, maxWidth: 1100, margin: "0 auto" }}>
           {hotels.map((hotel) => (
-            <Link key={hotel.slug} href={`/hotel/${hotel.slug}`} style={{ textDecoration: "none" }}>
+            <Link key={hotel.slug} href={`/hotel/${hotel.slug}`} style={{ textDecoration: "none", color: "#fff" }}>
               <div className="rcard" style={{ aspectRatio: "4/3" }}>
                 <img className="rcard__img" src={hotel.heroImage} alt={hotel.name} />
                 <div className="rcard__base" />
